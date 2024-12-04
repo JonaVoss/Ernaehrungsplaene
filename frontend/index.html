@@ -1,1 +1,26 @@
-
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ernährungsplan Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Ernährungsplan Generator</h1>
+    <form id="criteria-form">
+        <label for="meals">Anzahl der Mahlzeiten:</label>
+        <input type="number" id="meals" name="meals" min="1" max="10" required>
+        
+        <label for="preferences">Ernährungsvorlieben:</label>
+        <input type="text" id="preferences" name="preferences" placeholder="Vegetarisch, vegan, glutenfrei...">
+        
+        <label for="calories">Tägliche Kalorien:</label>
+        <input type="number" id="calories" name="calories" required>
+        
+        <button type="submit">Plan generieren</button>
+    </form>
+    <div id="result"></div>
+    <script src="script.js"></script>
+</body>
+</html>
