@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Your Food!</title>
+    <link rel="stylesheet" href="src/assets/styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>Generate Your Food!</h1>
+        <nav>
+            <button id="recipe-tab">Rezept</button>
+            <button id="plan-tab" class="active">Ernährungsplan</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="plan-section">
+            <h2>Konfiguriere deine Kriterien</h2>
+            <form id="criteria-form">
+                
+                <div class="form-group">
+                    <label for="tierischeProdukte">Tierische Produkte:</label>
+                    <select id="tierischeProdukte" name="tierischeProdukte">
+                            <option value="Vegan">Vegan</option>
+                            <option value="Vegetarisch">Vegetarisch</option>
+                            <option value="Pescetarisch">Pescetarisch</option>
+                            <option value="Keine Einschränkung">Keine Einschränkung</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="kosten-min">Min. Kosten pro Woche (Euro):</label>
+                    <input type="number" id="kosten-min" name="kosten_min" placeholder="z. B. 20">
+                </div>
+
+                <div class="form-group">
+                    <label for="kosten-max">Max. Kosten pro Woche (Euro):</label>
+                    <input type="number" id="kosten-max" name="kosten_max" placeholder="z. B. 60">
+                </div>
+
+                <div>   
+                    <label for="zeitintensität">Zeitintensität (Minuten):</label>
+                    <div class="slider-container">
+                        <input type="range" id="zeit_min" name="zeit_min" min="5" max="90" step="5" value="10">
+                        <input type="range" id="zeit_max" name="zeit_max" min="5" max="90" step="5" value="60">
+                        <div id="range-labels">10 Min - 60 Min</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="kocherfahrung">Kocherfahrung:</label>
+                    <input type="range" id="kocherfahrung" name="kocherfahrung" min="1" max="5" step="1" value="3">
+                    <span id="kocherfahrung_value">Mittel</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="anzahlMahlzeitenProTag">Anzahl der Mahlzeiten pro Tag:</label>
+                    <select id="anzahlMahlzeitenProTag" name="anzahlMahlzeitenProTag">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Möchten Sie zwischendurch einen Snack?</label>
+                    <input type="checkbox" id="snacks-ja" name="snacks" value="Ja">
+                    <label for="snacks-ja">Ja</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="allergien">Allergien und Unverträglichkeiten:</label>
+                    <div class="checkbox-group">
+                        <!-- Vorselektierte Kriterien -->
+                        <input type="checkbox" id="allergie-gluten" name="allergien" value="Gluten">
+                        <label for="allergie-gluten">Gluten</label>
+
+                        <input type="checkbox" id="allergie-laktose" name="allergien" value="Laktose">
+                        <label for="allergie-laktose">Laktose</label>
+
+                        <!-- Checkbox für weitere Allergien -->
+                        <input type="checkbox" id="allergie-sonstige" name="allergien" value="Sonstige">
+                        <label for="allergie-sonstige">Sonstige (bitte angeben)</label>
+
+                        <!-- Input-Feld für sonstige Allergien, standardmäßig versteckt -->
+                        <div id="sonstige-container" style="display: none;">
+                            <input type="text" id="allergie-sonstige-text" placeholder="Bitte geben Sie Ihre Allergien an">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="form-group">
+                    <label for="kcal_min">Kcal pro Tag (min):</label>
+                    <input type="number" id="kcal_min" name="kcal_min" placeholder="z. B. 1600">
+                </div>
+
+                <div class="form-group">
+                    <label for="kcal_max">Kcal pro Tag (max):</label>
+                    <input type="number" id="kcal_max" name="kcal_max" placeholder="z. B. 1800">
+                </div>
+
+                
+                <div class="form-group">
+                    <label for="protein_min">Proteine pro Tag in Gramm (min):</label>
+                    <input type="number" id="protein_min" name="protein_min" placeholder="z. B. 60">
+                </div>
+
+                <div class="form-group">
+                    <label for="protein_max">Proteine pro Tag in Gramm (max):</label>
+                    <input type="number" id="protein_max" name="protein_max" placeholder="z. B. 90">
+                </div>
+
+                <div class="form-group">
+                    <label for="nachhaltigkeit">Nachhaltigkeit:</label>
+                    <input type="range" id="nachhaltigkeit" name="nachhaltigkeit" min="1" max="5" step="1" value="3">
+                    <span id="nachhaltigkeit_value">Neutral</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="saisonalitaet">Saisonalität:</label>
+                    <input type="range" id="saisonalitaet" name="saisonalitaet" min="1" max="5" step="1" value="3">
+                    <span id="saisonalitaet_value">Neutral</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="preferences">Vorlieben:</label>
+                    <input type="text" id="preferences" name="preferences" placeholder="z. B. Zutaten oder Geschmack">
+                </div>
+
+                <div class="form-group">
+                    <label for="activity">Sportliche Aktivitäten:</label>
+                    <select id="activity" name="activity">
+                        <option value="ausdauer">Ausdauer</option>
+                        <option value="kraftsport">Kraftsport</option>
+                        <option value="mix">Mix</option>
+                    </select>
+                </div>
+
+                <button type="button" id="generate-button" onclick="window.location.href='/src/pages/result';">Plan erstellen</button>
+            </form>
+        </section>
+
+        <section id="result-section" class="hidden">
+            <h2>Dein Ernährungsplan</h2>
+            <pre id="plan-output"></pre>
+        </section>
+    </main>
+
+    <script src="src/components/script.js"></script>
+</body>
+</html>
