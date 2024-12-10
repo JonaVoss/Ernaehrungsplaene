@@ -42,7 +42,7 @@ h1, h2 {
 
 /* Formular-Styles */
 form {
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
     padding: 20px;
     background: white;
@@ -102,4 +102,73 @@ pre {
 .hidden {
     display: none;
 }
+
+
+
+
+/*
+.slider-container {
+    position: relative;
+    width: 300px;
+  }
+  
+  input[type="range"] {
+    position: absolute;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    pointer-events: none; /* Deaktiviert Klicks auf den Hintergrund *//*
+    height: 5px;
+    background: transparent;
+    z-index: 1;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    pointer-events: auto; /* Aktiviert Klicks nur auf den Daumen *//*
+    width: 15px;
+    height: 15px;
+    background: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  #zeit_min::-webkit-slider-thumb {
+    z-index: 3; /* Höhere Priorität für den linken Daumen *//*
+  }
+  
+  #zeit_max::-webkit-slider-thumb {
+    z-index: 2;
+  }
+  
+  #range-labels {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .slider-container::before {
+    content: '';
+    position: absolute;
+    height: 5px;
+    background: #ddd;
+    z-index: 0;
+    left: 0;
+    right: 0;
+    top: 7px;
+  }
+  
+  .slider-container::after {
+    content: '';
+    position: absolute;
+    height: 5px;
+    background: #007bff;
+    z-index: 1;
+    top: 7px;
+    border-radius: 5px;
+    left: 10%; /* Startet bei `zeit_min` *//*
+    right: 40%; /* Endet bei `zeit_max` *//*
+  }*/
 
