@@ -2,7 +2,7 @@ Erstelle einen vegetarischen Ernährungsplan für eine Woche basierend auf folge
 - Tierische Produkte: {tierischeProdukte}
 - Kosten pro Woche: {kosten_min}€ bis {kosten_max}€
 - Kocherfahrung: {kocherfahrung}
-- Zeitintensität pro Mahlzeit: {zeitintensität} Minuten
+- Zeitintensität pro Mahlzeit: {zeit_min} bis {zeit_max} Minuten
 - Mahlzeiten pro Tag: {anzahlMahlzeitenProTag}
 - Snacks zwischendurch: {snacks}
 - Unverträglichkeiten/Allergien: {allergien}
@@ -20,9 +20,3 @@ Strukturiere die Ausgabe als JSON:
 ...
 ]
 }
-
-
--	Kosten dazu schreiben
--	Einkaufsliste
--	Beispiel geben wie es ausgegeben werden soll
-
