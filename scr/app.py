@@ -8,14 +8,13 @@ app = FastAPI()
 
 
 # OpenAI API-Key (sichere Speicherung z. B. in einer .env-Datei empfohlen)
-openai.api_key = "DEIN_API_KEY"
+openai.api_key = "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"
 
 
 # Funktion zum Lesen des Prompt-Templates
 def load_prompt_template():
-    with open("prompt_template.txt", "r", encoding="utf-8") as file:
+    with open("assets/prompt_template.txt", "r", encoding="utf-8") as file:
         return file.read()
-
 
 # Endpunkt zur Generierung des Ernährungsplans
 @app.post("/generate-plan")
@@ -37,7 +36,8 @@ async def generate_plan(request: Request):
             kosten_min = user_data.get("kosten_min", "nicht angegeben"),
             kosten_max = user_data.get("kosten_max", "nicht angegeben"),
             kocherfahrung = user_data.get("kocherfahrung", "nicht angegeben"),
-            zeitintensität = user_data.get("zeitintensität", "nicht angegeben"),
+            zeit_min = user_data.get("zeit_min", "nicht angegeben"),
+            zeit_max = user_data.get("zeit_max", "nicht angegeben"),
             anzahlMahlzeitenProTag = user_data.get("anzahlMahlzeitenProTag", "nicht angegeben"),
             snacks = user_data.get("snacks", "nicht angegeben"),
             allergien = user_data.get("allergien", "nicht angegeben"),
