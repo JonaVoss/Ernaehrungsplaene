@@ -14,18 +14,21 @@ document.getElementById("generate-button").addEventListener("click", async () =>
         zeit_min: document.getElementById("zeit_min").value,
         zeit_max: document.getElementById("zeit_max").value,
         anzahlMahlzeitenProTag: document.getElementById("anzahlMahlzeitenProTag").value,
-        snacks: document.getElementById("snacks-ja").checked ? "Ja" : "Nein",
-        allergien: getAllergienData,
+        snacks: document.getElementById("snacks_ja").checked ? "Ja" : "Nein",
+        allergien: getAllergienData(),
         kcal_min: document.getElementById("kcal_min").value,
         kcal_max: document.getElementById("kcal_max").value,
         protein_min: document.getElementById("protein_min").value,
         protein_max: document.getElementById("protein_max").value,
-        nachhaltigkeit: document.getElementById("nachhaltigkeit_value").value,
-        saisonalität: document.getElementById("saisonalität_value").value,
+        nachhaltigkeit: nachhaltigkeitValue.textContent,
+        saisonalitaet: saisonalitaetValue.textContent,
         vorlieben: document.getElementById("preferences").value,
         aktivitäten: document.getElementById("activity").value,
-    };
 
+    };
+    console.log(userData);
+    sessionStorage.setItem("llmResult", userData);
+            
 
     // Anfrage an die API senden
     try {
@@ -36,12 +39,15 @@ document.getElementById("generate-button").addEventListener("click", async () =>
             },
             body: JSON.stringify(userData)
         });
+        alert(JSON.stringify(userData));
 
         if (response.ok) {
             const data = await response.json();
-            document.getElementById("plan-output").textContent = data.plan;
-            document.getElementById("result-section").classList.remove("hidden");
-        } else {
+
+            sessionStorage.setItem("llmResult", data.plan);
+            window.location.href = "src/pages/result.html";
+          
+            } else {
             alert("Fehler beim Generieren des Plans!");
         }
     } catch (error) {
@@ -50,7 +56,17 @@ document.getElementById("generate-button").addEventListener("click", async () =>
     }
 });
 
-
+document.getElementById("test-button").addEventListener("click", () => {
+  const inputs = {
+      tierischeProdukte: document.getElementById("tierischeProdukte").value,
+      kosten_min: document.getElementById("kosten_min").value,
+      kosten_max: document.getElementById("kosten_max").value,
+      allergien: getAllergienData(),
+      // Weitere Felder hinzufügen
+  };
+  console.log(inputs);
+  alert(JSON.stringify(inputs)); // Zeigt die Werte in einem Popup an
+});
 
 const kocherfahrungSlider = document.getElementById('kocherfahrung');
 const kocherfahrungValue = document.getElementById('kocherfahrung_value');
@@ -110,7 +126,6 @@ maxSlider.addEventListener('input', updateRange);
 updateRange();
 
 
-
 const sonstigeCheckbox = document.getElementById('allergie-sonstige');
 const sonstigeContainer = document.getElementById('sonstige-container');
 const sonstigeInput = document.getElementById('allergie-sonstige-text');
@@ -140,7 +155,3 @@ function getAllergienData() {
 
   return selectedAllergien;
 }
-
-// Beispiel: Allergien-Daten speichern
-const user_data = {};
-user_data.allergien = getAllergienData();
