@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import os
 from fastapi.middleware.cors import CORSMiddleware
 
+
 # .env-Datei laden
 #load_dotenv()
 
@@ -26,10 +27,6 @@ app.add_middleware(
     allow_methods=["*"],  # Erlaube alle Methoden (GET, POST, usw.)
     allow_headers=["*"],  # Erlaube alle Header
 )
-
-
-# OpenAI API-Key (sichere Speicherung z. B. in einer .env-Datei empfohlen)
-#openai.api_key = openai.api_key
 
 
 # Funktion zum Lesen des Prompt-Templates
