@@ -1,0 +1,21 @@
+Erstelle einen vegetarischen Ernährungsplan für eine Woche basierend auf folgenden Angaben. Falls "nicht angegeben" sind die Kriterien in diesem Fall irrelevant. "Snacks" werden, wenn sie gewünscht wurden, als separate Mahlzeit zwischen "Mittagessen" und "Abendessen" angegeben:
+- Tierische Produkte: {tierischeProdukte}
+- Kosten pro Woche: {kosten_min}€ bis {kosten_max}€
+- Kocherfahrung: {kocherfahrung}
+- Zeitintensität pro Mahlzeit: {zeit_min} bis {zeit_max} Minuten
+- Mahlzeiten pro Tag: {anzahlMahlzeitenProTag}
+- Snacks zwischendurch: {snacks}
+- Unverträglichkeiten/Allergien: {allergien}
+- Kcal-Anzahl am Tag: {kcal_min} bis {kcal_max}
+- Proteingehalt am Tag in Gramm: {protein_min} bis {protein_max}
+- Nachhaltigkeit: {nachhaltigkeit}
+- Saisonalität: {saisonalitaet}
+- kulinarische Vorlieben: {vorlieben}
+- Sportliche Aktivitäten: {aktivitäten}
+
+Strukturiere die Ausgabe ausschließlich als JSON:
+{{
+  "plan": [
+    {{ "tag": "Montag", "gerichte": [{{ "speise": "Frühstück", "name": , "rezept": {{ zutaten: [], schritte: [] }} }}, {{ "speise": "Mittagessen", "name": , "rezept": {{zutaten: [], schritte: [] }} }} , {{ "speise": "Snack", "name": , "rezept": {{zutaten: [], schritte: [] }} , {{ "speise": "Abendessen", "name": , "rezept": {{zutaten: [], schritte: [] }} }}}}] }}
+  ]
+}}
